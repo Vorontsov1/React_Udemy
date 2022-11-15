@@ -8,12 +8,12 @@ const EmployersAddForm = () => {
         <input
           type="text"
           className="form-control new-post-label"
-          placeholder="Як його зовуть?"
+          placeholder="Як його ім'я?"
         />
         <input
           type="number"
           className="form-control new-post-label"
-          placeholder="З/П в $?"
+          placeholder="З/п в $?"
         />
 
         <button type="submit" className="btn btn-outline-light">
