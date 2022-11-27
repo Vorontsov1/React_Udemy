@@ -8,10 +8,10 @@ import './app.css';
 function App() {
 
   const data = [
-    { name: 'James Hetfield', salary: 5000, increase: true },
-    { name: 'Lars Ulrich', salary: 3800, increase: false },
-    { name: 'Kirk Hammet', salary: 3760, increase: false },
-    { name: 'Robert Trujillo', salary: 3940, increase: false },
+    { name: 'James Hetfield', salary: 5000, increase: true, id: 1},
+    { name: 'Lars Ulrich', salary: 3800, increase: false, id: 2},
+    { name: 'Kirk Hammet', salary: 3760, increase: false, id: 3},
+    { name: 'Robert Trujillo', salary: 3940, increase: false, id: 4},
   ];
 
   return (
