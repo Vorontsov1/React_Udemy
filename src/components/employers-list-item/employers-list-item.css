@@ -31,11 +31,11 @@
 }
 
 .list-group-item .btn-cookie {
-    color: #e09f3e;
+    color: rgb(255, 170, 0);
 }
 
 .list-group-item .btn-trash {
-    color: #e5383b;
+    color: #4189e7;
 }
 
 .list-group-item .fa-star {
