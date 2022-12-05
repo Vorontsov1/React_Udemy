@@ -31,7 +31,7 @@
 }
 
 .list-group-item .btn-cookie {
-    color: rgb(255, 170, 0);
+    color: rgb(255, 200, 0);
 }
 
 .list-group-item .btn-trash {
@@ -61,5 +61,5 @@
 }
 
 .list-group-item.increase .btn-star {
-    color: #aeaeae;
+    color: #e9cccc;
 }
