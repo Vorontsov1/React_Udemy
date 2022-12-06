@@ -18,6 +18,7 @@ class  App extends Component {
             { name: 'Robert Trujillo', salary: 3940, increase: false, id: 4},
           ]
         }
+        this.maxId = 5;
     }
   
 
@@ -28,11 +29,41 @@ class  App extends Component {
         } 
       })
     }
+     
+     addItem = (name, salary) => {
+      const newItem = {
+        name,
+        salary,
+        increase: false,
+        rise: false,
+        id: this.maxId++
+      }
+      this.setState(({data}) => {
+        const newArr = [...data, newItem];
+        return {
+          data: newArr
+        }
+      });
+     }
+     
+     onToggleProp = (id, prop) => {
+      this.setState(({data}) => ({
+        data: data.map(item => {
+          if (item.id === id) {
+            return {...item, [prop]: !item[prop]}
+          }
+          return item;
+        })
+      }))
+     }
 
+     
  render() {
+  const employers = this.state.data.length;
+  const increase = this.state.data.filter(item => item.increase).lengthp;
   return (
     <div className="app">
-      <AppInfo />
+      <AppInfo employers={employers} increase={increase}/>
 
       <div className="search-panel">
         <SearchPanel />
