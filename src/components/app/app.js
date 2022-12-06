@@ -23,59 +23,61 @@ class  App extends Component {
   
 
     deleteItem = (id) => {
-      this.setState (({data}) => {
-        return {
-          data: data.filter(item => item.id !== id)
-        } 
+      this.setState(({data}) => {
+          return {
+              data: data.filter(item => item.id !== id)
+          }
       })
-    }
-     
-     addItem = (name, salary) => {
+  }
+
+  // Да, пока могут добавляться пустые пользователи. Мы это еще исправим
+  addItem = (name, salary) => {
       const newItem = {
-        name,
-        salary,
-        increase: false,
-        rise: false,
-        id: this.maxId++
+          name, 
+          salary,
+          increase: false,
+          rise: false,
+          id: this.maxId++
       }
       this.setState(({data}) => {
-        const newArr = [...data, newItem];
-        return {
-          data: newArr
-        }
-      });
-     }
-     
-     onToggleProp = (id, prop) => {
-      this.setState(({data}) => ({
-        data: data.map(item => {
-          if (item.id === id) {
-            return {...item, [prop]: !item[prop]}
+          const newArr = [...data, newItem];
+          return {
+              data: newArr
           }
-          return item;
-        })
+      });
+  }
+
+  onToggleProp = (id, prop) => {
+      this.setState(({data}) => ({
+          data: data.map(item => {
+              if (item.id === id) {
+                  return {...item, [prop]: !item[prop]}
+              }
+              return item;
+          })
       }))
-     }
+  }
 
-     
- render() {
-  const employers = this.state.data.length;
-  const increase = this.state.data.filter(item => item.increase).lengthp;
-  return (
-    <div className="app">
-      <AppInfo employers={employers} increase={increase}/>
-
-      <div className="search-panel">
-        <SearchPanel />
-        <AppFilter />
-      </div>
-
-      <EmployersList data={this.state.data} 
-      onDelete={this.deleteItem}/>
-      <EmployersAddForm />
-    </div>
-  );
- }
+  render() {
+      const employers = this.state.data.length;
+      const increased = this.state.data.filter(item => item.increase).length;
+      return (
+          <div className="app">
+              <AppInfo employers={employers} increased={increased}/>
+  
+              <div className="search-panel">
+                  <SearchPanel/>
+                  <AppFilter/>
+              </div>
+              
+              <EmployersList 
+                  data={this.state.data}
+                  onDelete={this.deleteItem}
+                  onToggleProp={this.onToggleProp}/>
+              <EmployersAddForm onAdd={this.addItem}/>
+          </div>
+      );
+  }
 }
 
 export default App;
